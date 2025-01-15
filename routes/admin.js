@@ -11,13 +11,12 @@ const products = [];
 // /admin/add-product => GET
 router.get("/add-product", (req, res, next) => {
   res.render("add-product", {
-    docTitle: "Add HandleBars Product",
+    docTitle: "Add Ejs Product",
     path: "/admin/add-product",
     activeAddProduct: true,
     productCSS: true,
     formsCSS: true,
   });
-  // res.sendFile(path.join(rootDir, "views", "add-product.html"));
 });
 
 // /admin/add-product => POST
