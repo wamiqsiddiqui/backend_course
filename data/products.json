@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "imageUrl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDUyMDUzNjQ3NTY2NDcw/book-review-harry-potter-and-the-cursed-child-2016.jpg",
+    "description": "It definitely looks cool. But then again, they say you shouldn't judge a book by its cover.",
+    "price": "500"
+  },
+  {
+    "title": "Harry Potter and the Chamber of Secrets",
+    "imageUrl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDUyMDUzNjQ3NTY2NDcw/book-review-harry-potter-and-the-cursed-child-2016.jpg",
+    "description": "It definitely looks cool. But then again, they say you shouldn't judge a book by its cover.",
+    "price": "500"
+  },
+  {
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "imageUrl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDUyMDUzNjQ3NTY2NDcw/book-review-harry-potter-and-the-cursed-child-2016.jpg",
+    "description": "It definitely looks cool. But then again, they say you shouldn't judge a book by its cover.",
+    "price": "500"
+  },
+  {
+    "title": "Harry Potter and the Goblet of Fire",
+    "imageUrl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDUyMDUzNjQ3NTY2NDcw/book-review-harry-potter-and-the-cursed-child-2016.jpg",
+    "description": "It definitely looks cool. But then again, they say you shouldn't judge a book by its cover.",
+    "price": "500"
+  },
+  {
+    "title": "Harry Potter and the Order of the Phoenix",
+    "imageUrl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDUyMDUzNjQ3NTY2NDcw/book-review-harry-potter-and-the-cursed-child-2016.jpg",
+    "description": "It definitely looks cool. But then again, they say you shouldn't judge a book by its cover.",
+    "price": "500"
+  },
+  {
+    "title": "Harry Potter and the Half-Blood Prince",
+    "imageUrl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDUyMDUzNjQ3NTY2NDcw/book-review-harry-potter-and-the-cursed-child-2016.jpg",
+    "description": "It definitely looks cool. But then again, they say you shouldn't judge a book by its cover.",
+    "price": "500"
+  },
+  {
+    "title": "Harry Potter and the Deathly Hallows: Part 1",
+    "imageUrl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDUyMDUzNjQ3NTY2NDcw/book-review-harry-potter-and-the-cursed-child-2016.jpg",
+    "description": "It definitely looks cool. But then again, they say you shouldn't judge a book by its cover.",
+    "price": "500"
+  },
+  {
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "imageUrl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDUyMDUzNjQ3NTY2NDcw/book-review-harry-potter-and-the-cursed-child-2016.jpg",
+    "description": "It definitely looks cool. But then again, they say you shouldn't judge a book by its cover.",
+    "price": "500"
+  },
+  {
+    "title": "Harry Potter and the Cursed Child",
+    "imageUrl": "https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0NDUyMDUzNjQ3NTY2NDcw/book-review-harry-potter-and-the-cursed-child-2016.jpg",
+    "description": "It definitely looks cool. But then again, they say you shouldn't judge a book by its cover.",
+    "price": "500"
+  }
+]
