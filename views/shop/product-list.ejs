@@ -4,7 +4,6 @@
 
     <body>
         <%- include('../includes/navigation.ejs') %>
-
             <main>
                 <% if (prods.length > 0) { %>
                     <div class="grid">
@@ -27,9 +26,8 @@
                                     </p>
                                 </div>
                                 <div class="card__actions">
-                                    <form action="/add-to-cart" method="POST">
-                                        <button class="btn">Add to Cart</button>
-                                    </form>
+                                    <a class="btn" href="/products/<%= product.id %>">Details</a>
+                            <%- include('../includes/add-to-cart.ejs',{product:product}) %>
                                 </div>
                             </article>
                             <% } %>
