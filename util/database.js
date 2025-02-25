@@ -1,8 +1,25 @@
-const Sequelize = require("sequelize");
+require("dotenv").config();
+const mongodb = require("mongodb");
+const MongoClient = mongodb.MongoClient;
+let _db;
+const mongoConnect = (callback) => {
+  MongoClient.connect(process.env.MONGODB_URI)
+    .then((client) => {
+      console.log("Connected!");
+      _db = client.db();
+      callback();
+    })
+    .catch((err) => {
+      console.log(err);
+      throw err;
+    });
+};
 
-const sequelize = new Sequelize("node-complete", "root", "Mysql@1234", {
-  dialect: "mysql",
-  host: "localhost",
-});
+const getDb = () => {
+  if (_db) {
+    return _db;
+  }
+  throw "No Database Found!";
+};
 
-module.exports = sequelize;
+module.exports = { mongoConnect, getDb };
