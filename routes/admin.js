@@ -28,16 +28,16 @@ router.post(
       .trim()
       .isLength({ min: 3 })
       .withMessage("Title should be atleast 3 characters long"),
-    body("imageUrl")
-      .custom((value) => {
-        if (value.trim().length === 0) {
-          throw new Error("Please enter imageUrl for the product");
-        }
-        return true;
-      })
-      .trim()
-      .isURL()
-      .withMessage("Please enter a valid URL"),
+    // body("imageUrl")
+    //   .custom((value) => {
+    //     if (value.trim().length === 0) {
+    //       throw new Error("Please enter imageUrl for the product");
+    //     }
+    //     return true;
+    //   })
+    //   .trim()
+    //   .isURL()
+    //   .withMessage("Please enter a valid URL"),
     body("price")
       .custom((value) => {
         if (value.trim().length === 0) {
@@ -88,16 +88,16 @@ router.post(
       .trim()
       .isLength({ min: 3 })
       .withMessage("Title should be atleast 3 characters long"),
-    body("imageUrl")
-      .custom((value) => {
-        if (value.trim().length === 0) {
-          throw new Error("Please enter imageUrl for the product");
-        }
-        return true;
-      })
-      .trim()
-      .isURL()
-      .withMessage("Please enter a valid URL"),
+    // body("imageUrl")
+    //   .custom((value) => {
+    //     if (value.trim().length === 0) {
+    //       throw new Error("Please enter imageUrl for the product");
+    //     }
+    //     return true;
+    //   })
+    //   .trim()
+    //   .isURL()
+    //   .withMessage("Please enter a valid URL"),
     body("price")
       .custom((value) => {
         if (value.trim().length === 0) {

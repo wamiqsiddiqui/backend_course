@@ -10,7 +10,9 @@
         <% if(errorMessage){ %>
             <div class="user-message user-message--error"><%= errorMessage %></div>
         <% } %>
-        <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST">
+        <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST" enctype="multipart/form-data"><!-- enctype="multipart/form-data" is required for file uploads which parses mixed data i.e. binary(files) + text data. (default value is application/x-www-form-urlencoded which parses only text data) 
+            Multer looks for files in the body of the request, so it won't work with the default body-parser. You need to use the multer middleware before the body-parser middleware.
+            -->
             <div class="form-control">
                 <label for="title">Title</label>
                 <input 
@@ -20,7 +22,7 @@
                 id="title" 
                 value= "<%=product.title%>">
             </div>
-            <div class="form-control">
+            <!-- <div class="form-control">
                 <label for="imageUrl">Image URL</label>
                 <input
                 class="<%= validationErrors.find(e=>e.path==='imageUrl')?'invalid':'' %>" 
@@ -28,6 +30,13 @@
                 name="imageUrl"
                 id="imageUrl"
                 value="<%=product.imageUrl%>">
+            </div> -->
+            <div class="form-control">
+                <label for="image">Image</label>
+                <input
+                type="file"
+                name="image"
+                id="image">
             </div>
             <div class="form-control">
                 <label for="price">Price</label>

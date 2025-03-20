@@ -8,6 +8,7 @@ const errorController = require("./controllers/error");
 const User = require("./models/user");
 const csrf = require("csurf");
 const flash = require("connect-flash");
+const multer = require("multer");
 
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
@@ -18,14 +19,46 @@ const store = new MongoDBStore({
 });
 const csrfProtection = csrf();
 
+const fileStorage = multer.diskStorage({
+  //This is just a storage engine used by multer to store files and configure their names
+  destination: (req, file, callback) => {
+    callback(null, "images");
+  },
+  filename: (req, file, callback) => {
+    callback(
+      null,
+      new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname
+    );
+  },
+});
+
+const fileFilter = (req, file, callback) => {
+  if (
+    file.mimetype === "image/png" ||
+    file.mimetype === "image/jpg" ||
+    file.mimetype === "image/jpeg"
+  ) {
+    callback(null, true);
+  } else {
+    callback(null, false);
+  }
+};
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const authRoutes = require("./routes/auth");
 //Requests interact separated from each other. We need sessions to connect them
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false })); //Is used to parse only text data and not files data so we use 'multer' for that
+app.use(
+  multer({ storage: fileStorage, fileFilter: fileFilter }).single("image")
+);
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/images", express.static(path.join(__dirname, "images")));
+//statically serving a folder means that the folder is not
+// processed by the server, but directly returned to the client and the request to files in that folder will be handled automatically
+// and the files will be returned.
 app.use(
   session({
     secret: "my secret",
@@ -71,9 +104,11 @@ app.use((error, req, res, next) => {
   //When you call next(error); for async code, express will skip all other middlewares and go directly to the error handling middleware
   //When you throw error from any sync code, express will skip all other middlewares and go directly to the error handling middleware
   // res.redirect("/500");
+  console.log("500 Error = ", error);
   res.status(500).render("500", {
     pageTitle: "Server Error",
     path: "/500",
+    error: error,
   });
 });
 
