@@ -5,14 +5,31 @@ const Product = require("../models/product");
 const Order = require("../models/order");
 const mongoose = require("mongoose");
 
+const ITEMS_PER_PAGE = 2;
+
 exports.getProducts = (req, res, next) => {
+  const page = req.query.page || 1;
+  let totalItems;
   Product.find()
+    .countDocuments()
+    .then((numProducts) => {
+      totalItems = numProducts;
+      return Product.find()
+        .skip((page - 1) * ITEMS_PER_PAGE) //page = 1, 1-1*2 = 0, page = 2, 2-1=1, 1*2=2 skip
+        .limit(ITEMS_PER_PAGE);
+    })
     .then((products) => {
       console.log(products);
       res.render("shop/product-list", {
         prods: products,
         pageTitle: "All Products",
         path: "/products",
+        currentPage: parseInt(page),
+        hasNextPage: ITEMS_PER_PAGE * page < totalItems,
+        hasPreviousPage: page > 1,
+        nextPage: parseInt(page) + 1,
+        previousPage: parseInt(page) - 1,
+        lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE),
       });
     })
     .catch((err) => {
@@ -43,14 +60,28 @@ exports.getProduct = (req, res, next) => {
       return next(error);
     });
 };
-
 exports.getIndex = (req, res, next) => {
+  const page = req.query.page || 1;
+  let totalItems;
   Product.find()
+    .countDocuments()
+    .then((numProducts) => {
+      totalItems = numProducts;
+      return Product.find()
+        .skip((page - 1) * ITEMS_PER_PAGE) //page = 1, 1-1*2 = 0, page = 2, 2-1=1, 1*2=2 skip
+        .limit(ITEMS_PER_PAGE);
+    })
     .then((products) => {
       res.render("shop/index", {
         prods: products,
         pageTitle: "Shop",
         path: "/",
+        currentPage: parseInt(page),
+        hasNextPage: ITEMS_PER_PAGE * page < totalItems,
+        hasPreviousPage: page > 1,
+        nextPage: parseInt(page) + 1,
+        previousPage: parseInt(page) - 1,
+        lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE),
       });
     })
     .catch((err) => {
