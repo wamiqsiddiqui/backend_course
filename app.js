@@ -9,6 +9,9 @@ const User = require("./models/user");
 const csrf = require("csurf");
 const flash = require("connect-flash");
 const multer = require("multer");
+const shopController = require("./controllers/shop");
+
+const isAuth = require("./middleware/is-auth");
 
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
@@ -67,12 +70,10 @@ app.use(
     store: store,
   })
 );
-app.use(csrfProtection);
 app.use(flash());
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
-  res.locals.csrfToken = req.csrfToken();
   next();
 });
 
@@ -94,6 +95,12 @@ app.use((req, res, next) => {
     });
 });
 
+app.post("/create-order", isAuth, shopController.postOrder); //This route will not have csrf protection because stripe form doesn't need one
+app.use(csrfProtection);
+app.use((req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 app.use(authRoutes);
