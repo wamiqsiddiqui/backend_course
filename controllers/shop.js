@@ -1,9 +1,8 @@
+require("dotenv").config();
 const fs = require("fs");
 const path = require("path"); //So it works on all OS
 const PDFDocument = require("pdfkit");
-const stripe = require("stripe")(
-  "sk_test_51MXlLmAPtFHNiX0PoN2DRGcgzzCqhzBeg7rVCXNgK4eMpKZpzb2ohSZz7OqeoxHK9q6PjHzWlzGreWn5EPx3vQwV00F4XYLHsY"
-);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 const Product = require("../models/product");
 const Order = require("../models/order");
 const mongoose = require("mongoose");
